@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juice Paradise - Fresh & Healthy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #1dd1a1;
+            --accent-color: #feca57;
+            --text-color: #2d3436;
+            --light-color: #f9f9f9;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff5252;
+            border-color: #ff5252;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://static.vecteezy.com/system/resources/previews/022/454/679/non_2x/mix-fruit-juice-in-a-glass-with-fresh-fruits-generative-ai-free-photo.jpg') center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 20px auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .testimonial {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: var(--accent-color);
+            font-size: 3rem;
+            opacity: 0.2;
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        #contact {
+            background-color: var(--light-color);
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-blender me-2"></i>
+                Juice Paradise
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary rounded-pill px-4" href="#order">Order Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1>Fresh Juice for a Healthier You</h1>
+                    <p>Experience the taste of nature with our hand-crafted, organic, cold-pressed juices made from locally sourced fruits and vegetables.</p>
+                    <a href="#menu" class="btn btn-primary btn-lg rounded-pill px-4 me-3">View Menu</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg rounded-pill px-4">Find Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>100% Organic</h3>
+                    <p class="text-muted">We use only the freshest, organic fruits and vegetables for maximum nutrition and flavor.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="feature-icon">
+                        <i class="fas fa-blender"></i>
+                    </div>
+                    <h3>Cold-Pressed</h3>
+                    <p class="text-muted">Our cold-press method preserves essential nutrients and enzymes for optimal health benefits.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Health-Focused</h3>
+                    <p class="text-muted">Each juice is carefully crafted to provide specific health benefits and improve wellness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="py-5 bg-light" id="menu">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Our Popular Juices</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="https://cdn.shopify.com/s/files/1/2131/4217/files/GreenJuice_large.png?v=1516302681" class="card-img-top" alt="Green Detox Juice">
+                        <div class="card-body">
+                            <h5 class="product-title">Green Detox</h5>
+                            <p class="text-muted mb-2">Cucumber, Celery, Apple, Spinach, Ginger</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$7.99</span>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="https://img.freepik.com/premium-photo/summer-fruits-juiceson-tropical-beach-background-healthy-beverage-rich-vitamins-generative-ai_90099-8490.jpg" class="card-img-top" alt="Berry Blast Juice">
+                        <div class="card-body">
+                            <h5 class="product-title">Berry Blast</h5>
+                            <p class="text-muted mb-2">Strawberry, Blueberry, Raspberry, Apple, Lemon</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$8.49</span>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="https://static.vecteezy.com/system/resources/previews/037/484/190/non_2x/ai-generated-orange-juice-in-glass-on-wooden-table-with-tropical-fruits-and-flowers-background-free-photo.jpg" class="card-img-top" alt="Tropical Paradise Juice">
+                        <div class="card-body">
+                            <h5 class="product-title">Tropical Paradise</h5>
+                            <p class="text-muted mb-2">Pineapple, Mango, Orange, Passionfruit</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$8.99</span>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="https://th.bing.com/th/id/OIP.EIudKTmNYMZyMODQ5fPmiAHaEJ?w=626&h=351&rs=1&pid=ImgDetMain" class="card-img-top" alt="Energizer Juice">
+                        <div class="card-body">
+                            <h5 class="product-title">The Energizer</h5>
+                            <p class="text-muted mb-2">Carrot, Orange, Ginger, Turmeric</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$7.49</span>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="https://static.vecteezy.com/system/resources/previews/029/338/441/large_2x/a-front-view-fresh-fruit-cocktails-with-fresh-fruit-slices-ice-cooling-on-blue-drink-juice-co-free-photo.jpg" class="card-img-top" alt="Purple Heart Juice">
+                        <div class="card-body">
+                            <h5 class="product-title">Purple Heart</h5>
+                            <p class="text-muted mb-2">Beetroot, Apple, Carrot, Ginger, Lemon</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$8.49</span>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <img src="https://static.vecteezy.com/system/resources/previews/029/322/244/non_2x/a-front-view-fresh-fruit-cocktails-with-fresh-fruit-slices-ice-cooling-on-blue-drink-juice-co-free-photo.jpg" class="card-img-top" alt="Citrus Burst Juice">
+                        <div class="card-body">
+                            <h5 class="product-title">Citrus Burst</h5>
+                            <p class="text-muted mb-2">Orange, Grapefruit, Lemon, Lime, Mint</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$7.99</span>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="#" class="btn btn-primary rounded-pill px-4" id="order">View Full Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Our Story</h2>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="about-img">
+                        <img src="https://www.nutritionadvance.com/wp-content/uploads/2023/01/fruit-juice-with-various-fruits-in-background.jpg" class="img-fluid rounded-3" alt="Juice Paradise Shop">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3>From Farm to Bottle</h3>
+                    <p class="mb-4">Juice Paradise was founded in 2018 with a simple mission: to provide delicious, nutritious juices made from the freshest ingredients. We believe that what you put into your body matters, which is why we source only the highest quality organic fruits and vegetables from local farmers.</p>
+                    <p>Our cold-press method ensures that all the essential nutrients and enzymes remain intact, giving you the maximum health benefits with every sip. We handcraft each juice with care, never adding preservatives, sugars, or artificial ingredients.</p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-outline-primary rounded-pill px-4 me-3">Learn More</a>
+                        <a href="#contact" class="btn btn-primary rounded-pill px-4">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-12">
+                    <h2 class="section-title">What Our Customers Say</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://img.freepik.com/premium-photo/ai-human-avatar-characters-male-model_1166271-38.jpg" class="testimonial-img" alt="Customer">
+                            <div>
+                                <h5 class="mb-0">Adam Johnson</h5>
+                                <small class="text-muted">Fitness Instructor</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"I've tried many juice shops, but Juice Paradise is on another level. Their Green Detox is my go-to after workouts. The quality and taste are unmatched!"</p>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://pics.craiyon.com/2023-11-16/WqmkjrCFQG6fUdwCd9zuNQ.webp" class="testimonial-img" alt="Customer">
+                            <div>
+                                <h5 class="mb-0">Michael Patel</h5>
+                                <small class="text-muted">Software Developer</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"The Energizer juice has been a game-changer for my productivity. I've replaced my morning coffee with it, and I've never felt better. Highly recommend!"</p>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://pics.craiyon.com/2023-08-04/340d9c83a47a461fa9d33191b92c7731.webp" class="testimonial-img" alt="Customer">
+                            <div>
+                                <h5 class="mb-0">Jonathan James</h5>
+                                <small class="text-muted">Nutritionist</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"As a nutritionist, I'm very particular about what I recommend to my clients. Juice Paradise is one of the few places I trust for quality, nutrition-packed juices."</p>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="py-5" id="contact">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Get In Touch</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary rounded-pill px-4">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="mb-4">
+                        <h4>Visit Our Store</h4>
+                        <p class="mb-0">123 Juice Street, Healthy City</p>
+                        <p>CA 90210, USA</p>
+                    </div>
+                    <div class="mb-4">
+                        <h4>Opening Hours</h4>
+                        <p class="mb-0">Monday - Friday: 7:00 AM - 8:00 PM</p>
+                        <p>Saturday - Sunday: 8:00 AM - 7:00 PM</p>
+                    </div>
+                    <div>
+                        <h4>Contact Info</h4>
+                        <p class="mb-0"><i class="fas fa-phone me-2"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@juiceparadise.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Juice Paradise</h4>
+                    <p>Bringing the freshest, organic cold-pressed juices to your neighborhood since 2018. Our commitment to quality and health never wavers.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#menu" class="text-white text-decoration-none">Menu</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                    <h5 class="footer-title">Services</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Delivery</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Catering</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Bulk Orders</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates, promotions, and juice recipes.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Your Email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright text-center">
+                <div class="col-12">
+                    <p class="mb-0">&copy; 2025 Juice Paradise. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
